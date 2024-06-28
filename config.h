@@ -93,14 +93,13 @@ ResourcePref resources[] = {
 #include <X11/XF86keysym.h>
  
 /* volume keys*/
-static const char *upvol[] = { "amixer", "set", "Master", "playback", "5+", NULL };
-static const char *downvol[] = { "amixer", "set", "Master", "playback", "5-", NULL };
-static const char *mutevol[] = { "amixer", "sset", "Master", "toggle", NULL };
- 
-/* backlight */
-static const char *brightnessup[] = { "light", "-A", "5", NULL };
-static const char *brightnessdown[] = { "light", "-U", "5", NULL };
+static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
+static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
+static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
 
+/* backlight */
+static const char *brightnessup[] = { "brightnessctl", "set", "10%+", NULL };
+static const char *brightnessdown[] = { "brightnessctl", "set", "10%-", NULL };
 
 #include "shiftview.c"
 
@@ -124,32 +123,32 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,			                  XK_f,		   togglefullscr,	 {0} },
- 	{ MODKEY,                       XK_0, view,           {.ui = ~0 } },
- 	{ MODKEY|ShiftMask,             XK_0, tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
- 	{ MODKEY,                       XK_semicolon, focusmon,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
- 	{ MODKEY|ShiftMask,             XK_semicolon, tagmon,      {.i = +1 } },
+    { MODKEY,                       XK_0, view,           {.ui = ~0 } },
+    { MODKEY|ShiftMask,             XK_0, tag,            {.ui = ~0 } },
+    { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+    { MODKEY,                       XK_semicolon, focusmon,    {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_semicolon, tagmon,      {.i = +1 } },
 	{ MODKEY,                       XK_n,      shiftview,      {.i = +1 } },
 	{ MODKEY,                       XK_b,      shiftview,      {.i = -1 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
- 	TAGKEYS(                        XK_1,                      0)
- 	TAGKEYS(                        XK_2,                      1)
- 	TAGKEYS(                        XK_3,                      2)
- 	TAGKEYS(                        XK_4,                      3)
- 	TAGKEYS(                        XK_5,                      4)
- 	TAGKEYS(                        XK_6,                      5)
- 	TAGKEYS(                        XK_7,                      6)
- 	TAGKEYS(                        XK_8,                      7)
- 	TAGKEYS(                        XK_9,                      8)
+    TAGKEYS(                        XK_1,                      0)
+    TAGKEYS(                        XK_2,                      1)
+    TAGKEYS(                        XK_3,                      2)
+    TAGKEYS(                        XK_4,                      3)
+    TAGKEYS(                        XK_5,                      4)
+    TAGKEYS(                        XK_6,                      5)
+    TAGKEYS(                        XK_7,                      6)
+    TAGKEYS(                        XK_8,                      7)
+    TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { 0,                            XF86XK_AudioLowerVolume,  spawn, {.v = downvol} },
-  { 0,                            XF86XK_AudioMute,         spawn, {.v = mutevol }},
-  { 0,                            XF86XK_AudioRaiseVolume,  spawn, {.v = upvol} },
-  { 0,                            XF86XK_MonBrightnessUp,   spawn, {.v = brightnessup} },
-  { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessdown} },
+    { 0,                            XF86XK_AudioLowerVolume,  spawn, {.v = downvol} },
+    { 0,                            XF86XK_AudioMute,         spawn, {.v = mutevol }},
+    { 0,                            XF86XK_AudioRaiseVolume,  spawn, {.v = upvol} },
+    { 0,                            XF86XK_MonBrightnessUp,   spawn, {.v = brightnessup} },
+    { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessdown} },
 };
 
 /* button definitions */
