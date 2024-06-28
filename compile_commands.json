@@ -1,0 +1,83 @@
+[
+  {
+    "arguments": [
+      "/sbin/cc",
+      "-c",
+      "-std=c99",
+      "-pedantic",
+      "-Wall",
+      "-Wno-deprecated-declarations",
+      "-Os",
+      "-I/usr/X11R6/include",
+      "-I/usr/include/freetype2",
+      "-D_DEFAULT_SOURCE",
+      "-D_BSD_SOURCE",
+      "-D_XOPEN_SOURCE=700L",
+      "-DVERSION=\"6.4\"",
+      "-DXINERAMA",
+      "-I",
+      "/home/alaidine/include",
+      "-I",
+      "/home/alaidine/include",
+      "-I",
+      ".",
+      "drw.c"
+    ],
+    "directory": "/home/alaidine/.config/dwm",
+    "file": "/home/alaidine/.config/dwm/drw.c"
+  },
+  {
+    "arguments": [
+      "/sbin/cc",
+      "-c",
+      "-std=c99",
+      "-pedantic",
+      "-Wall",
+      "-Wno-deprecated-declarations",
+      "-Os",
+      "-I/usr/X11R6/include",
+      "-I/usr/include/freetype2",
+      "-D_DEFAULT_SOURCE",
+      "-D_BSD_SOURCE",
+      "-D_XOPEN_SOURCE=700L",
+      "-DVERSION=\"6.4\"",
+      "-DXINERAMA",
+      "-I",
+      "/home/alaidine/include",
+      "-I",
+      "/home/alaidine/include",
+      "-I",
+      ".",
+      "dwm.c"
+    ],
+    "directory": "/home/alaidine/.config/dwm",
+    "file": "/home/alaidine/.config/dwm/dwm.c"
+  },
+  {
+    "arguments": [
+      "/sbin/cc",
+      "-c",
+      "-std=c99",
+      "-pedantic",
+      "-Wall",
+      "-Wno-deprecated-declarations",
+      "-Os",
+      "-I/usr/X11R6/include",
+      "-I/usr/include/freetype2",
+      "-D_DEFAULT_SOURCE",
+      "-D_BSD_SOURCE",
+      "-D_XOPEN_SOURCE=700L",
+      "-DVERSION=\"6.4\"",
+      "-DXINERAMA",
+      "-I",
+      "/home/alaidine/include",
+      "-I",
+      "/home/alaidine/include",
+      "-I",
+      ".",
+      "util.c"
+    ],
+    "directory": "/home/alaidine/.config/dwm",
+    "file": "/home/alaidine/.config/dwm/util.c"
+  }
+]
