@@ -96,11 +96,6 @@ ResourcePref resources[] = {
 
 
 #include <X11/XF86keysym.h>
- 
-/* volume keys*/
-static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL };
-static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL };
-static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL };
 
 /* backlight */
 static const char *brightnessup[] = { "brightnessctl", "set", "10%+", NULL };
@@ -149,9 +144,9 @@ static const Key keys[] = {
     TAGKEYS(                        XK_8,                      7)
     TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    { 0,                            XF86XK_AudioLowerVolume,  spawn, {.v = downvol} },
-    { 0,                            XF86XK_AudioMute,         spawn, {.v = mutevol }},
-    { 0,                            XF86XK_AudioRaiseVolume,  spawn, {.v = upvol} },
+    { 0,                            XF86XK_AudioLowerVolume,  spawn, SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)") },
+    { 0,                            XF86XK_AudioMute,         spawn, SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
+    { 0,                            XF86XK_AudioRaiseVolume,  spawn, SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof dwmblocks)") },
     { 0,                            XF86XK_MonBrightnessUp,   spawn, {.v = brightnessup} },
     { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessdown} },
 };
